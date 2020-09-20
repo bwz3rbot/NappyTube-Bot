@@ -63,9 +63,7 @@ async function createNewStream(broadcast, PlaylistName, track, play_next_track, 
     await addErrorListener(newStream, broadcast)
     // TODO: fix this. its spamming the chat when it keeps failing to initialize.
     // await addReadyListener(broadcast)
-    await addFinishListener(broadcast)
-
-    newStream.emit("info", (info));
+    await addFinishListener(broadcast);
 
 
 
@@ -87,15 +85,15 @@ async function addInfoListener(stream, broadcast) {
         broadcast._embeddedInfo = Embed;
         let playlistEmbed = broadcast._buildPlaylistEmbed(broadcast._BroadcastData)
         broadcast._playlistInfoEmbed = playlistEmbed
-        // for (const [k, v] of broadcast._connections) {
-        //     if (v.listening_to == broadcast._BroadcastData.PlaylistName) {
-        //         try {
-        //             await v.text_channel.send(Embed)
-        //         } catch (err) {
-        //             console.log(err)
-        //         }
-        //     }
-        // }
+        for (const [k, v] of broadcast._connections) {
+            if (v.listening_to == broadcast._BroadcastData.PlaylistName) {
+                try {
+                    await v.text_channel.send(playlistEmbed)
+                } catch (err) {
+                    console.log(err)
+                }
+            }
+        }
     })
 }
 // const addInfoListener = async function (broadcast) {

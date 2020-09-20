@@ -194,7 +194,7 @@ const playlistEmbed = function (BroadcastData) {
             inline: true
         },{
             name: "\u200B",
-            value:"You can use the `!more` command to get more info about the track."
+            value:"You can use the `!more` command to get more info about the current track."
         })
         .setFooter('Playlists POWERED by Napster')
 }
