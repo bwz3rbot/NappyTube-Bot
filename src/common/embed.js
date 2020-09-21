@@ -16,27 +16,35 @@ const devEmbed = function () {
         .setThumbnail(NappyDiamond_image)
         .addFields({
             name: 'JavaScript Developer',
-            value: `I develop applications in JavaScript to help accomplish all sorts of tasks.`
+            value: `I develop applications in JavaScript to accomplish all sorts of tasks.`
         }, {
             name: '\u200B',
             value: '\u200B'
         }, {
-            name: 'Reddit Bots',
+            name: 'Bots?',
             value: '`Got Em✅`',
             inline: true,
         }, {
-            name: 'Discord Bots',
+            name: 'Scrapers?',
             value: '`Got Em✅`',
             inline: true
+        },{
+            name: '\u200B',
+            value: '\u200B',
+            inline: false
         }, {
-            name: 'Web Scrapers',
-            value: '`Got Em✅`',
+            name: 'Discord?',
+            value: '`Yep✅`',
+            inline: true
+        },{
+            name: 'Reddit?',
+            value: '`That too✅`',
             inline: true
         }, {
             name: '\u200B',
             value: '\u200B',
             inline: false
-        }, )
+        })
         .addField('Contact me on Reddit', 'https://www.reddit.com/u/Bwz3r', false)
         .addField('Contact me on Discord', 'https://discord.gg/bcEtSJx', false)
         .addField('View my Github Repo', 'https://github.com/web-temps', false)
@@ -152,6 +160,7 @@ const infoEmbed = function (info) {
             value: info.likes + " likes | " + info.dislikes + " dislikes",
             inline: true
         })
+        .setTimestamp(Date.now())
         .setFooter("Music POWERED by Youtube", NappyN_image)
 
         if(info.videoDetails.thumbnail.thumbnails){
@@ -196,6 +205,7 @@ const playlistEmbed = function (BroadcastData) {
             name: "\u200B",
             value:"You can use the `!more` command to get more info about the current track."
         })
+        .setTimestamp(Date.now())
         .setFooter('Playlists POWERED by Napster')
 }
 
